@@ -1,3 +1,2 @@
-## 0.0.1
-
-* TODO: Describe initial release.
+## 1.0.0 [18.08.2023]
+- Release
