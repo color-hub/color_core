@@ -1,0 +1,9 @@
+include: package:color_lints/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - lib/**.gr.dart
+    - lib/**.g.dart
+    - lib/**.freezed.dart
+    - lib/**.config.dart
+    - lib/gen/*.dart

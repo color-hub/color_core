@@ -1,0 +1,32 @@
+name: color_core
+publish_to: https://onepub.dev/api/yhohnoflyg/
+description: Core of Color Hub apps.
+homepage: https://colorhub.online
+repository: https://github.com/color-hub/color_core
+version: 1.0.0
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  color_ui:
+    path: ../color_ui
+  macos_ui:
+    git: https://github.com/suxoikorm/macos_ui.git  
+  device_info_plus: ^9.0.3
+  package_info_plus: ^4.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  color_lints:
+    hosted:
+      url: https://onepub.dev/api/yhohnoflyg/
+      name: color_lints
+    version: ^1.0.0
+
+flutter:
