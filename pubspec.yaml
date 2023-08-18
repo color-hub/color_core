@@ -6,16 +6,19 @@ repository: https://github.com/color-hub/color_core
 version: 1.0.0
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: ">=3.1.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
   color_ui:
-    path: ../color_ui
+    version: ^3.5.0
+    hosted:
+      name: color_ui
+      url: https://onepub.dev/api/yhohnoflyg/
   macos_ui:
-    git: https://github.com/suxoikorm/macos_ui.git  
+    git: https://github.com/suxoikorm/macos_ui.git
   device_info_plus: ^9.0.3
   package_info_plus: ^4.1.0
   permission_handler: ^10.4.3
