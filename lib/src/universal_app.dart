@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:color_ui/color_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:macos_ui/macos_ui.dart';
@@ -14,10 +13,12 @@ class UniversalApp extends StatelessWidget {
     required this.routeInformationParser,
     required this.routerDelegate,
     required this.themeMode,
-    required this.appThemeColor,
+    required this.lightTheme,
+    required this.darkTheme,
     this.routerDelegateMac,
     this.routeInformationParserMac,
-    this.macThemeColor,
+    this.macosLightTheme,
+    this.macosDarkTheme,
     super.key,
   });
 
@@ -31,21 +32,21 @@ class UniversalApp extends StatelessWidget {
   final RouterDelegate<Object> routerDelegate;
 
   final ThemeMode themeMode;
-  final AppThemeColor appThemeColor;
+  final ThemeData lightTheme;
+  final ThemeData darkTheme;
 
   // macOS
   final RouteInformationParser<Object>? routeInformationParserMac;
   final RouterDelegate<Object>? routerDelegateMac;
-  final Color? macThemeColor;
+  final MacosThemeData? macosLightTheme;
+  final MacosThemeData? macosDarkTheme;
 
   @override
   Widget build(BuildContext context) {
     if (!kIsWeb &&
         Platform.isMacOS &&
         routeInformationParserMac != null &&
-        routerDelegateMac != null &&
-        macThemeColor != null) {
-          
+        routerDelegateMac != null) {
       return MacosApp.router(
         title: title,
         localizationsDelegates: localizationsDelegates,
@@ -54,8 +55,8 @@ class UniversalApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routeInformationParser: routeInformationParserMac!,
         routerDelegate: routerDelegateMac!,
-        theme: ColorThemeMac.lightTheme(macThemeColor!),
-        darkTheme: ColorThemeMac.darkTheme(macThemeColor!),
+        theme: macosLightTheme,
+        darkTheme: macosDarkTheme,
         themeMode: themeMode,
       );
     }
@@ -71,8 +72,8 @@ class UniversalApp extends StatelessWidget {
         routeInformationParser: routeInformationParser,
         routerDelegate: routerDelegate,
         themeMode: themeMode,
-        theme: ColorTheme.lightTheme(appThemeColor),
-        darkTheme: ColorTheme.darkTheme(appThemeColor),
+        theme: lightTheme,
+        darkTheme: darkTheme,
       ),
     );
   }
